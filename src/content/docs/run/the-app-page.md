@@ -26,6 +26,9 @@ The page you land on. It carries the app's address, its current status, what the
 last deploy did, and any banner that needs your attention — an unapplied
 variable change, a blocked deploy, a source that is no longer allowed, a lock.
 
+A [batch app](../../automation/jobs/#batch-apps) shows **Runs jobs** where the
+address would be, and no Open, Start or Stop.
+
 **A platform decision about your app appears on your app.** You do not have to
 go and find out from somewhere else that a deploy was refused.
 

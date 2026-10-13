@@ -50,6 +50,11 @@ Nodes, three Go toolchains and three Rs — so most installs offer a real choice
 without anybody having installed anything. Your install may offer more, or
 fewer.
 
+In the published image the sets, newest first, are Node 24, 22 and 20; Python
+3.15, 3.14 and 3.13; R 4.6, 4.5 and 4.4. The newest is the default, so an app
+with no pin runs Python 3.15 and R 4.6. Pin `>=` something older, or `<` the
+newest, to stay behind.
+
 The New app page and the build log both tell you what was available.
 
 ## What is running right now

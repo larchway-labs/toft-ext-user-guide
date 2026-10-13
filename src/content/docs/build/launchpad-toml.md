@@ -85,6 +85,23 @@ detection. See [Static sites](../static/).
 Only needed when the repository is ambiguous or the document's own header does
 not say. See [Notebooks](../notebooks/).
 
+## `[batch]`
+
+Declares an app that is nothing but jobs: no web server, nothing to start.
+
+```toml
+[batch]
+language = "python"   # only when the repository has more than one language
+
+[jobs.extract]
+command  = "python extract.py"
+schedule = "0 2 * * *"
+```
+
+See [Batch apps](../../automation/jobs/#batch-apps). It is never inferred, so
+a script that merely looks like a web app is still deployed as one. It cannot be
+combined with `[static]`.
+
 ## `[jobs.<name>]`
 
 One table per job. See [Jobs](../../automation/jobs/) for what a job is.
@@ -92,7 +109,9 @@ One table per job. See [Jobs](../../automation/jobs/) for what a job is.
 | Key | Meaning |
 |---|---|
 | `command` | What to run. Required. |
-| `schedule` | Cron expression, for a job that runs unattended. |
+| `schedule` | Cron expression, for a job that runs unattended. UTC unless `timezone` is set. |
+| `timezone` | IANA zone the schedule is read in, e.g. `Europe/London`. Do not also put `CRON_TZ=` in `schedule`. |
+| `expect_within` | `"26h"`, `"7d"` (1h to 31d): report the job overdue if it has no success in that window. See [Jobs](../../automation/jobs/#knowing-a-job-has-stopped-succeeding). |
 | `timeout` | Seconds before the run is killed. |
 | `memory` | Megabytes. |
 | `cpu` | CPU allowance. |

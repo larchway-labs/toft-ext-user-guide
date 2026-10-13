@@ -46,6 +46,16 @@ run.result({"rows": 1240})
 Progress is for a human watching. It is never load-bearing — the run's outcome is
 the outcome.
 
+`run.scheduled_for` is the time the run is for — see
+[Jobs](../jobs/#which-time-a-run-is-for).
+
+## Sending from a job
+
+A job can send mail or notifications through the integrations attached to its
+app: `notify` works inside a job just as it does in the app. That is all a job
+can do with the app's own surface — it cannot read app data, act as a viewer or
+start another job. A send is accepted only while the run is in flight.
+
 ## When to reach for this
 
 Good: a report somebody asked for, an export, a recalculation, anything that

@@ -105,6 +105,11 @@ and if you do, make sure it matches your slug.</p>
 <p><code dir="auto">npm ci</code> when there is a lockfile, <code dir="auto">npm install</code> otherwise. Commit your
 lockfile — it is the difference between a reproducible build and a build that
 resolves differently in three weeks.</p>
+<p><strong>Launchpad reads <code dir="auto">package-lock.json</code>.</strong> A repository locked with pnpm
+(<code dir="auto">pnpm-lock.yaml</code>) or Yarn (<code dir="auto">yarn.lock</code>) is not refused, but that file is passed
+over: the dependency scan resolves versions from <code dir="auto">package.json</code> instead, so they
+can differ from the ones your lockfile pins. The build log names the file it
+passed over.</p>
 <p><strong>Lifecycle scripts are disabled</strong> unless your administrator has switched them
 on install-wide. A <code dir="auto">postinstall</code> that fetches a binary or patches a package will
 not run, and that is not something you can turn on per app. If your build

@@ -67,6 +67,8 @@ For CI, created by an administrator. A deploy key belongs to no person, so it
 does not stop working when somebody leaves. What it can do is a **strict subset**
 of what a personal key can do.
 
+A deploy key cannot attach a git connection, as a personal key cannot.
+
 Use one in a pipeline. A personal key in CI is a person's identity in a place
 nobody is watching.
 

@@ -39,6 +39,12 @@ Everything else is ordinary Next: `next build`, then the framework's own server.
 lockfile — it is the difference between a reproducible build and a build that
 resolves differently in three weeks.
 
+**Launchpad reads `package-lock.json`.** A repository locked with pnpm
+(`pnpm-lock.yaml`) or Yarn (`yarn.lock`) is not refused, but that file is passed
+over: the dependency scan resolves versions from `package.json` instead, so they
+can differ from the ones your lockfile pins. The build log names the file it
+passed over.
+
 **Lifecycle scripts are disabled** unless your administrator has switched them
 on install-wide. A `postinstall` that fetches a binary or patches a package will
 not run, and that is not something you can turn on per app. If your build

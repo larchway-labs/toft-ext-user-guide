@@ -20,6 +20,13 @@ the schedule as a cron expression. The path is relative to your app —
 
 Your install caps how many schedules one app may have.
 
+## Time zones
+
+A schedule runs in UTC unless it names a zone: fill in the **Time zone** field,
+or write `CRON_TZ=Europe/London 0 6 * * *` as the schedule. It fires once per
+wall-clock time across daylight saving, and lists show `expression · zone`.
+From the client, `lp task create nightly --path /internal/roll --schedule "0 6 * * *" --timezone Europe/London`.
+
 ## A task without a schedule is on demand
 
 **The cron expression is optional.** Leave it empty and nothing fires the task:

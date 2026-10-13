@@ -20,7 +20,8 @@ has to press start.
 
 ## What a lock blocks
 
-Deploying, starting, changing visibility, running jobs, **rolling back**, and
+Deploying, starting, changing visibility, running jobs (scheduled firings do not
+fire, queued runs are cancelled and a run in flight is stopped), **rolling back**, and
 everything else that would bring the app back or change what it serves. Visitors
 to the app's URL get the administrator's message too.
 
