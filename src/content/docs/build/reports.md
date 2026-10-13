@@ -3,12 +3,18 @@ title: Scheduled re-renders and report delivery
 description: Refreshing a published document on a schedule, and mailing the people who read it.
 ---
 
-A [document app](../notebooks/) shows the numbers from the moment it was
-rendered. A **render schedule** re-runs it on a cron expression, so the page is
-never older than you decided it could be.
+A [document app](../notebooks/) — a notebook, an R Markdown document, or a
+Quarto document — shows the numbers from the moment it was rendered. A **render
+schedule** re-runs it on a cron expression, so the page is never older than you
+decided it could be.
 
-Set it on the app's **Automation** tab. An app with no schedule reports that it
-has none — it is not an error.
+Set it on the app's **Settings** tab, under **Re-render on a schedule**. The
+expression is five fields and runs in **UTC**: `0 6 * * 1-5` is 06:00 UTC on
+weekdays. An app with no schedule reports that it has none — it is not an error.
+
+A scheduled render uses the document's **default parameters**. There is no way
+to pass different `params` per schedule; a report you need for each region is
+one app per region, each with its own default.
 
 ## What a render is
 
