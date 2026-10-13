@@ -62,6 +62,9 @@ If you have a `manifest.json` from Posit Connect, Launchpad translates it into
 an `renv.lock` rather than learning a second format. Everything downstream is
 the same.
 
+You can also publish straight from RStudio with the Publish button, as you
+would to Connect — see [From RStudio](../../deploy/from-rstudio/).
+
 ## Dependency scanning
 
 R packages are matched against the CRAN advisory corpus, and an app's

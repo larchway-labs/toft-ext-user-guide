@@ -14,7 +14,9 @@ depends on **who the key belongs to**.
 
 ## Personal keys — `lpu_`
 
-What `lp login` gives you, and what you create under **Me → Credentials**.
+What `lp login` gives you, what signing RStudio in gives you (see
+[From RStudio](../../deploy/from-rstudio/)), and what you create under
+**Me → Credentials**.
 
 It is *you*: anything you can do, it can do, across every app you can reach.
 Treat it like your password. If a script only ever needs to touch one app, give

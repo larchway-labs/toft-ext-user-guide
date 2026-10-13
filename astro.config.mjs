@@ -72,6 +72,7 @@ export default defineConfig({
           items: [
             { label: "From a git repository", slug: "deploy/from-git" },
             { label: "From your machine", slug: "deploy/from-your-machine" },
+            { label: "From RStudio", slug: "deploy/from-rstudio" },
             { label: "From an archive", slug: "deploy/from-an-archive" },
             { label: "From the gallery", slug: "deploy/from-the-gallery" },
             { label: "Watching a deploy", slug: "deploy/watching" },
