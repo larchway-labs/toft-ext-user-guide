@@ -11,14 +11,14 @@ Ten minutes, and you need to be a [publisher](../signing-in/).
 1. Press **New app**.
 2. Paste the repository URL, or pick a repository from a git host your
    administrator has connected.
-3. Give the app a **name**. Launchpad turns it into a **slug** — lowercase
+3. Give the app a **name**. Toft turns it into a **slug** — lowercase
    letters, digits and hyphens — and that slug is the app's address:
    `/apps/your-slug`.
 4. Press **Create**.
 
-If the slug you asked for is taken, Launchpad tells you the one it actually
+If the slug you asked for is taken, Toft tells you the one it actually
 used rather than silently renaming your app. Slugs beginning with `_` are
-refused: that namespace belongs to apps Launchpad installs itself, like this
+refused: that namespace belongs to apps Toft installs itself, like this
 guide.
 
 ## 2. Watch the deploy
@@ -28,7 +28,7 @@ runs. It has three phases:
 
 | Phase | What happens |
 |---|---|
-| **Upload** | The code arrives — cloned from git, or unpacked from what `lp` sent. Dependency directories like `node_modules` and `.venv` are stripped, because the build reinstalls them. |
+| **Upload** | The code arrives — cloned from git, or unpacked from what `toft` sent. Dependency directories like `node_modules` and `.venv` are stripped, because the build reinstalls them. |
 | **Scan** | Your dependencies are checked against your install's policy. Depending on how strict that policy is, a finding can warn you or stop the deploy. |
 | **Deploy** | Dependencies are installed, the app is built, and the workload is started. |
 
@@ -57,7 +57,7 @@ so with a banner while a saved value has not reached the running process.
 
 Two failures account for most first deploys.
 
-**"Unsupported framework."** Launchpad decided your repository is not one of the
+**"Unsupported framework."** Toft decided your repository is not one of the
 shapes it can run, and the message names what it looked for. The two common
 cases:
 
@@ -65,7 +65,7 @@ cases:
   has a `package.json` but no `start` script, so there is nothing to run.
   Either add a server and a `start` script, or commit the built output and
   declare it as a [static site](../../build/static/).
-- **A Python project with no obvious entry point.** Launchpad looks for
+- **A Python project with no obvious entry point.** Toft looks for
   `app.py`, `main.py`, `streamlit_app.py`, `server.py` or `wsgi.py`.
 
 **It deployed and the page is broken.** Almost always links. Your app is served

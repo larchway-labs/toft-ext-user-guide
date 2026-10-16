@@ -3,12 +3,12 @@ title: From RStudio
 description: Publishing from RStudio or Posit Workbench with the Publish button and rsconnect, as you would to Posit Connect.
 ---
 
-If you publish from RStudio today, you can keep doing it. Launchpad answers the
+If you publish from RStudio today, you can keep doing it. Toft answers the
 same calls Posit Connect does, so the **Publish** button and
-`rsconnect::deployApp()` work unchanged — you add Launchpad as a server once,
+`rsconnect::deployApp()` work unchanged — you add Toft as a server once,
 and from then on you publish to it like any Connect server.
 
-You do not need `lp` for any of this. RStudio talks to Launchpad through the
+You do not need `toft` for any of this. RStudio talks to Toft through the
 `rsconnect` package it already uses.
 
 ## Before you start
@@ -21,15 +21,15 @@ You do not need `lp` for any of this. RStudio talks to Launchpad through the
 - **A recent `rsconnect`.** Version 1.0 or later; RStudio updates it with your
   other packages.
 
-## Add Launchpad as a server
+## Add Toft as a server
 
 In RStudio:
 
 1. **Tools → Global Options → Publishing**, then **Connect…**, and choose
    **Posit Connect**.
-2. Enter your Launchpad address — the one you sign in to, such as
-   `https://launchpad.your-company.com`. Leave off any path.
-3. RStudio opens a Launchpad page in your browser titled **Sign in RStudio**.
+2. Enter your Toft address — the one you sign in to, such as
+   `https://toft.your-company.com`. Leave off any path.
+3. RStudio opens a Toft page in your browser titled **Sign in RStudio**.
 4. Check it, and select **Approve**.
 5. Back in RStudio, the account finishes adding itself.
 
@@ -49,8 +49,8 @@ the request cannot be reused.
 The same sign-in, without the dialog:
 
 ```r
-rsconnect::addServer("https://launchpad.your-company.com", name = "launchpad")
-rsconnect::connectUser(server = "launchpad")
+rsconnect::addServer("https://toft.your-company.com", name = "toft")
+rsconnect::connectUser(server = "toft")
 ```
 
 `connectUser()` opens the same approval page. If you already have a
@@ -58,7 +58,7 @@ rsconnect::connectUser(server = "launchpad")
 browser:
 
 ```r
-rsconnect::connectApiUser(server = "launchpad", apiKey = "lpu_…")
+rsconnect::connectApiUser(server = "toft", apiKey = "toftu_…")
 ```
 
 ## Publish
@@ -66,13 +66,13 @@ rsconnect::connectApiUser(server = "launchpad", apiKey = "lpu_…")
 Use the **Publish** button in RStudio, or from the console:
 
 ```r
-rsconnect::deployApp(server = "launchpad")
+rsconnect::deployApp(server = "toft")
 ```
 
-The build log streams into RStudio's **Deploy** pane while Launchpad builds the
-app. When it finishes, RStudio opens the app's page in Launchpad.
+The build log streams into RStudio's **Deploy** pane while Toft builds the
+app. When it finishes, RStudio opens the app's page in Toft.
 
-What happens on Launchpad's side:
+What happens on Toft's side:
 
 - **A new app is created** the first time, named after the folder — or after
   `appName` if you pass one. That name becomes its address:
@@ -80,9 +80,9 @@ What happens on Launchpad's side:
 - **It starts private.** Only you can open it until you share it. See
   [Who can see your app](../../share/visibility/).
 - **Your packages come from the bundle.** `rsconnect` records the packages your
-  app uses in a `manifest.json`, and Launchpad installs exactly those. You do
+  app uses in a `manifest.json`, and Toft installs exactly those. You do
   not need an `renv.lock` for a publish from RStudio. See [R](../../build/r/).
-- **It is an ordinary Launchpad app.** Logs, settings, sharing, schedules and
+- **It is an ordinary Toft app.** Logs, settings, sharing, schedules and
   rollback all work the way the rest of this guide describes.
 
 ## Publish again
@@ -100,17 +100,17 @@ build log in the Deploy pane says where it stopped.
 Variables you pass to `deployApp()` are stored on the app:
 
 ```r
-rsconnect::deployApp(server = "launchpad", envVars = c("DB_PASSWORD"))
+rsconnect::deployApp(server = "toft", envVars = c("DB_PASSWORD"))
 ```
 
-`rsconnect` reads each value from your own R session and sends it. Launchpad
+`rsconnect` reads each value from your own R session and sends it. Toft
 stores every variable set this way as **sensitive**: it is never shown back,
 on the app's Settings tab or anywhere else. To change one, publish again with a
 new value, or edit it on the app's [Settings](../../run/settings/).
 
 ## What is different from Posit Connect
 
-Publishing works the same. Managing the app afterwards happens in Launchpad
+Publishing works the same. Managing the app afterwards happens in Toft
 rather than through `rsconnect`:
 
 - **Sharing, access and visibility** are on the app's **Access** tab — not set
@@ -118,7 +118,7 @@ rather than through `rsconnect`:
 - **Custom URLs** do not exist. An app's address is its name.
 - **A name already in use is refused**, rather than renamed. Pick a different
   `appName`.
-- **Scheduled re-renders** are set up in Launchpad. See
+- **Scheduled re-renders** are set up in Toft. See
   [Scheduled re-renders](../../build/reports/).
 
 ## Signing RStudio out

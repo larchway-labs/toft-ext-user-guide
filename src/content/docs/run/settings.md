@@ -23,7 +23,7 @@ saved versus what is running. Restart when you want the new value picked up.
 
 :::caution
 Your app is given exactly three things: **the variables you set**, **the
-contract variables Launchpad supplies** (`PORT`, `BASE_PATH`, its own token and
+contract variables Toft supplies** (`PORT`, `BASE_PATH`, its own token and
 a few more), and **credentials an administrator attached**. Nothing else.
 
 It never inherits the platform's own environment — so a variable that works on
@@ -45,9 +45,9 @@ defaults for the environment this install is. Your own variables still win.
 ## Renaming
 
 Changing the name changes the slug, and the slug is the URL. Anything pointing
-at the old address stops working — Launchpad does not keep a redirect.
+at the old address stops working — Toft does not keep a redirect.
 
-A slug starting with `_` is refused: that namespace belongs to apps Launchpad
+A slug starting with `_` is refused: that namespace belongs to apps Toft
 installs itself, like the guide you are reading.
 
 ## Source

@@ -1,10 +1,10 @@
 ---
 title: From your machine
-description: Pushing the working tree with lp deploy, and what actually gets sent.
+description: Pushing the working tree with toft deploy, and what actually gets sent.
 ---
 
 ```bash
-lp deploy
+toft deploy
 ```
 
 Run from inside your project. It sends what is on your disk **right now** —
@@ -14,33 +14,33 @@ This is the fast loop while you are still working something out. The full
 client reference is in the **CLI and SDK guide**; what follows is what matters
 when you are deploying.
 
-## Getting `lp`
+## Getting `toft`
 
 ```bash
-lp login https://launchpad.your-company.com
+toft login https://toft.your-company.com
 ```
 
-Installing it and signing in are on [Installing lp](../../cli/installing/).
+Installing it and signing in are on [Installing toft](../../cli/installing/).
 
 ## Which app it deploys to
 
 ```toml
-# launchpad.toml, at the root of your project
+# toft.toml, at the root of your project
 [app]
 slug = "phase-test"
 ```
 
-`lp link` writes that for you and checks the slug against the install first, so
+`toft link` writes that for you and checks the slug against the install first, so
 a typo fails at link time rather than at deploy time. `--app <slug>` overrides
 it for one invocation.
 
 ## What gets sent
 
 **`.gitignore` decides.** Every `.gitignore` in the tree, with `!` negations
-honoured, plus `.git/info/exclude`. `.launchpadignore` adds to that; it never
+honoured, plus `.git/info/exclude`. `.toftignore` adds to that; it never
 replaces it.
 
-`lp` does **not** shell out to git, so this works in a plain folder that was
+`toft` does **not** shell out to git, so this works in a plain folder that was
 never a repository.
 
 Always dropped: `.git/`, `.hg/`, `.svn/`, `node_modules/`, `venv/`, `.venv/`,
@@ -52,15 +52,15 @@ project and the wrong one for a static site — so a `[static] root` pointing
 inside one of those wins, and your `dist/` ships.
 
 :::note
-`lp deploy` does not convert your app. Deploying from your machine to an app
+`toft deploy` does not convert your app. Deploying from your machine to an app
 created from a git repository does not detach it from that repository or change
 how it updates.
 :::
 
 ## Watching it
 
-`lp deploy` streams the build log and exits with the deploy's outcome. If you
-lose the terminal, `lp deploy --watch <deployID>` rejoins the same build.
+`toft deploy` streams the build log and exits with the deploy's outcome. If you
+lose the terminal, `toft deploy --watch <deployID>` rejoins the same build.
 
 Exit codes are a contract, and the two that matter in CI are different failures:
 **1** means the platform built your code and the build failed; **3** means your
@@ -69,14 +69,14 @@ credential was refused.
 ## In a pipeline
 
 ```bash
-export LAUNCHPAD_URL=https://launchpad.your-company.com
-export LAUNCHPAD_TOKEN_FILE=/run/secrets/launchpad
-lp deploy --app reports
+export TOFT_URL=https://toft.your-company.com
+export TOFT_TOKEN_FILE=/run/secrets/toft
+toft deploy --app reports
 ```
 
 There is no `--token` flag, on purpose: a secret on a command line lands in
 your shell history and in the process table. A credential and an address are
-one statement — `LAUNCHPAD_TOKEN` is used only alongside `LAUNCHPAD_URL`, and
+one statement — `TOFT_TOKEN` is used only alongside `TOFT_URL`, and
 every other combination is refused naming both halves.
 
 Use a [deploy key](../../cli/api-keys/) rather than your personal one, so the

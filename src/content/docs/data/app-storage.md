@@ -36,7 +36,7 @@ can read the bucket" versus "I can read the bucket".
 ## Reading it from your app
 
 ```python
-from launchpad import mounts, store
+from toft import mounts, store
 
 for m in mounts():
     print(m.name, m.path, m.level)   # a volume, as a filesystem path
@@ -74,8 +74,8 @@ and a drop you write.
 Both arrive under the same name, and the folder is what tells them apart:
 
 ```python
-lp.storage("warehouse").path                    # the only mount of that name
-lp.storage("drop", folder="backup").path        # say which
+toft.storage("warehouse").path                    # the only mount of that name
+toft.storage("drop", folder="backup").path        # say which
 ```
 
 **A name matching two mounts with no folder named raises**, listing what is
@@ -86,8 +86,8 @@ would answer by the alphabetical order of paths somebody else chose.
 is the ordinary case and is only ever ambiguous when there really is more than
 one.
 
-Every SDK has it: `lp.storage(name, folder=…)` in Python,
-`lp.storage(name, { folder })` in Node, `lp.StorageIn(name, folder)` in Go —
+Every SDK has it: `toft.storage(name, folder=…)` in Python,
+`toft.storage(name, { folder })` in Node, `toft.StorageIn(name, folder)` in Go —
 Go having no keyword arguments — and `storage(name, folder)` in R. `store` and
 `StoreIn` are the same thing for object stores.
 
@@ -100,7 +100,7 @@ everywhere, so `../` gets you nothing.
 ## Two things that surprise people
 
 **A browser upload needs CORS on the bucket.** Without it the upload fails in the
-browser, and Launchpad never sees it — so it is not reported as a failed upload.
+browser, and Toft never sees it — so it is not reported as a failed upload.
 That one is worth knowing before you spend an afternoon on it.
 
 **Deleting an app does not delete the data.** It detaches storage; the objects
@@ -110,4 +110,4 @@ survive.
 
 If your install runs apps as processes and has no storage roots configured,
 storage is **refused rather than faked**. The operator mounts the filesystem;
-Launchpad mounts nothing itself.
+Toft mounts nothing itself.

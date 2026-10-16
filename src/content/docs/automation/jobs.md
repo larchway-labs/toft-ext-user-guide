@@ -12,7 +12,7 @@ are no jobs — and the refusal says so rather than failing oddly.
 
 ## Declaring one
 
-In [`launchpad.toml`](../../build/launchpad-toml/):
+In [`toft.toml`](../../build/toft-toml/):
 
 ```toml
 [jobs.nightly-report]
@@ -42,7 +42,7 @@ waits does not change what it runs.
 - **It is your app.** A job starts a different entry point of the same app —
   never another app, and never an arbitrary command from outside the repository.
 - **It does not need your app running.** It is a separate process.
-- **Static apps cannot have jobs.** A `launchpad.toml` declaring one on a static
+- **Static apps cannot have jobs.** A `toft.toml` declaring one on a static
   app fails the deploy: there is no runtime for a command to mean anything in.
   Documents *can* — a rendered notebook's release has an interpreter.
 
@@ -50,8 +50,8 @@ waits does not change what it runs.
 
 Most apps serve something and have jobs on the side. A **batch app** is only
 jobs — a nightly extract, a report that mails itself — with no web server to
-write, deploy, sleep and wake. Declare it with `[batch]` in `launchpad.toml`
-([details](../../build/launchpad-toml/)); Node, Python, Go and R are supported.
+write, deploy, sleep and wake. Declare it with `[batch]` in `toft.toml`
+([details](../../build/toft-toml/)); Node, Python, Go and R are supported.
 
 - Dependencies install as for any app of that language. No entrypoint or `PORT`
   is needed, and nothing is started.
@@ -63,7 +63,7 @@ write, deploy, sleep and wake. Declare it with `[batch]` in `launchpad.toml`
 
 ## Time zones
 
-A schedule is read in UTC unless it names a zone. In `launchpad.toml`:
+A schedule is read in UTC unless it names a zone. In `toft.toml`:
 
 ```toml
 [jobs.morning-report]
@@ -97,14 +97,14 @@ part of a command line, which is what makes it safe to let somebody else supply
 one.
 
 ```bash
-lp job run report --param region=emea
+toft job run report --param region=emea
 ```
 
 ## Parameters are not a payload
 
 Those are two different things, and a run can have either, both or neither.
 
-**Parameters** are small named values, declared in `launchpad.toml` and read
+**Parameters** are small named values, declared in `toft.toml` and read
 from `run.params`. **A payload** is a body of data handed to the run, which the
 platform stores and gives your process a link to.
 
@@ -122,7 +122,7 @@ that is about the link, not about the data.
 A scheduled run knows the time it was scheduled for — the tick in the
 schedule's own zone, not the moment it actually started. A run that waited an
 hour behind the queue still knows it is the 03:00 run, and a retry keeps the
-original's. Your process reads it as `LAUNCHPAD_SCHEDULED_FOR` (for example
+original's. Your process reads it as `TOFT_SCHEDULED_FOR` (for example
 `2026-10-06T03:00:00+01:00`), or `run.scheduled_for` in the SDKs.
 
 A run you start by hand has none unless you name one — it is never defaulted to
@@ -130,7 +130,7 @@ now, so re-running last Tuesday's extract cannot quietly process today. Name it
 with the **Run for** dialog on the Automation tab, or:
 
 ```bash
-lp job run nightly-report --for 2026-10-06T03:00:00+01:00
+toft job run nightly-report --for 2026-10-06T03:00:00+01:00
 ```
 
 `--for` also takes `2026-10-06T03:00` (UTC) or `2026-10-06`. A run your app
@@ -201,11 +201,11 @@ job paused on Monday does not fire on Friday for Tuesday.
 ## Reading a run
 
 List runs, read one, read its log, read its output, cancel it — from the
-Automation tab, from `lp job runs`, `lp job logs`, `lp job cancel`, or from your
+Automation tab, from `toft job runs`, `toft job logs`, `toft job cancel`, or from your
 own code.
 
 ```bash
-lp job run nightly-report
+toft job run nightly-report
 ```
 
 Waits by default, and **the run's outcome is the exit code**, so a failing

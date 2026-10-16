@@ -4,7 +4,7 @@ description: The one rule that catches everybody once, and the three things that
 ---
 
 Your app is served at **`/apps/your-slug`** on the apps address. It is not at
-the root of a host, and it is not on the same origin as the Launchpad pages you
+the root of a host, and it is not on the same origin as the Toft pages you
 are reading this on.
 
 Almost every "it deployed and the page is broken" is this.
@@ -70,7 +70,7 @@ left alone too, so an app that knows its prefix can set one.
 ## Cookies
 
 Any cookie your app sets is yours and survives the proxy. Every cookie the
-**platform** sets is named `launchpad_*` — so if you see one of those, it is not
+**platform** sets is named `toft_*` — so if you see one of those, it is not
 yours, and you should not read it or expect it to mean anything to your code.
 
 ## WebSockets

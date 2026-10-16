@@ -14,11 +14,11 @@ Pick a release and **Make current**. The workload is restarted onto it; nothing
 is rebuilt, because the release is already built.
 
 ```bash
-lp rollback              # the newest successful release that is not serving
-lp rollback <deployID>   # a specific one
+toft rollback              # the newest successful release that is not serving
+toft rollback <deployID>   # a specific one
 ```
 
-`lp rollback` names the release it is about to make current **before** it acts,
+`toft rollback` names the release it is about to make current **before** it acts,
 and asks unless you pass `--yes`. In a pipeline, where it cannot ask, it refuses
 rather than hanging.
 

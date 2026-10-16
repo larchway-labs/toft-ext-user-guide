@@ -10,10 +10,10 @@ feature, and the limits are the point of it.
 |---|---|
 | **Size** | 256 KiB |
 | **Shape** | One document. No keys, no collections, no listing, no queries. |
-| **Contents** | Yours. Launchpad stores it as text and never reads it. |
+| **Contents** | Yours. Toft stores it as text and never reads it. |
 
 ```python
-from launchpad import data
+from toft import data
 
 doc = data.get()
 doc["last_run"] = "2026-08-31T02:00:00Z"

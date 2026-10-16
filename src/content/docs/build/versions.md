@@ -3,12 +3,12 @@ title: Language versions
 description: Pinning Python, Node, Go or R, and what a pin may and may not say.
 ---
 
-Launchpad picks a default version for your language. To ask for a different
-one, declare it — in `launchpad.toml` for Python, Node and R, and in `go.mod`
+Toft picks a default version for your language. To ask for a different
+one, declare it — in `toft.toml` for Python, Node and R, and in `go.mod`
 for Go.
 
 ```toml
-# launchpad.toml
+# toft.toml
 [runtime]
 python = ">=3.12"
 node   = ">=22"
@@ -43,9 +43,9 @@ install.
 ## Which versions exist
 
 Your administrator decides. Versions are **discovered on the machine**, not
-compiled into Launchpad, so the set can change without a Launchpad upgrade.
+compiled into Toft, so the set can change without a Toft upgrade.
 
-The published Launchpad image carries three of each — three Pythons, three
+The published Toft image carries three of each — three Pythons, three
 Nodes, three Go toolchains and three Rs — so most installs offer a real choice
 without anybody having installed anything. Your install may offer more, or
 fewer.

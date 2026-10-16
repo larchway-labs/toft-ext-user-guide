@@ -42,9 +42,9 @@ Treat a published document as public-facing output even when the app is private.
 ## The renderer is provided
 
 You do not add `jupyter`, `nbconvert` or `quarto` to your dependencies.
-Launchpad installs the renderer. Declare the libraries your document *imports*.
+Toft installs the renderer. Declare the libraries your document *imports*.
 
-The rendered output is served from a directory Launchpad owns — never from your
+The rendered output is served from a directory Toft owns — never from your
 release — so your `.qmd`, your `.Rmd`, `renv/` and `renv.lock` are 404 at any
 depth. The source is not published with the document.
 
@@ -53,7 +53,7 @@ depth. The source is not published with the document.
 A `.qmd` is Python or R depending on its **engine**, decided at detection time
 in this order:
 
-1. `[notebook] engine = "knitr"` in `launchpad.toml`
+1. `[notebook] engine = "knitr"` in `toft.toml`
 2. `engine:` or `knitr:` in the document's YAML header
 3. A fenced ` ```{r} ` chunk
 4. Otherwise, Python

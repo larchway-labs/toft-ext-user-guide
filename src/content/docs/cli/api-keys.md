@@ -14,7 +14,7 @@ depends on **who the key belongs to**.
 
 ## Personal keys — `lpu_`
 
-What `lp login` gives you, what signing RStudio in gives you (see
+What `toft login` gives you, what signing RStudio in gives you (see
 [From RStudio](../../deploy/from-rstudio/)), and what you create under
 **Me → Credentials**.
 
@@ -34,7 +34,7 @@ Every key you create has a **scope**, and you pick it once:
 | **Full** | Everything you can do, except manage credentials or change who may do what. This is what you get if you do not choose. |
 | **Read** | Reads only. Every write is refused. |
 
-A read-scoped key cannot change anything in Launchpad. It can still read
+A read-scoped key cannot change anything in Toft. It can still read
 anything you can read — including your apps' source archives and logs — and it
 can still call your apps. So a read key is narrower, not safe to leave lying
 around: whoever has it can see everything you can see.
@@ -44,9 +44,9 @@ a report, an inventory tool. Pick **Full** for anything that deploys or changes
 something.
 
 The scope cannot be changed afterwards. To move a key between scopes, create the
-other one and revoke this. `lp login` always creates a full-scope key, since
-`lp`'s main commands write; to use a read key with `lp`, create it in the
-browser and pass it to `lp login --token-stdin`.
+other one and revoke this. `toft login` always creates a full-scope key, since
+`toft`'s main commands write; to use a read key with `toft`, create it in the
+browser and pass it to `toft login --token-stdin`.
 
 A read key that is refused answers `403` with `key_read_scope`, which means a
 full-scope key would have worked. `session_required` means no key would.

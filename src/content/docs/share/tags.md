@@ -3,7 +3,7 @@ title: Tags
 description: The taxonomy your install defines, and why filling it in is worth your time.
 ---
 
-Tags are how a Launchpad estate gets browsed. Your administrator defines the
+Tags are how a Toft estate gets browsed. Your administrator defines the
 **tags** and their allowed **values**; you set values on your app's Settings
 tab.
 
@@ -27,7 +27,7 @@ The app list filters by tag too.
 
 ## Framework is a tag you do not set
 
-Launchpad maintains a `framework` tag itself, from what detection decided. You
+Toft maintains a `framework` tag itself, from what detection decided. You
 cannot edit it, and it is the honest answer to "what is this app written in"
 rather than what somebody typed a year ago.
 

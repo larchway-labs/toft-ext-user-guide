@@ -39,7 +39,7 @@ Everything else is ordinary Next: `next build`, then the framework's own server.
 lockfile — it is the difference between a reproducible build and a build that
 resolves differently in three weeks.
 
-**Launchpad reads `package-lock.json`.** A repository locked with pnpm
+**Toft reads `package-lock.json`.** A repository locked with pnpm
 (`pnpm-lock.yaml`) or Yarn (`yarn.lock`) is not refused, but that file is passed
 over: the dependency scan resolves versions from `package.json` instead, so they
 can differ from the ones your lockfile pins. The build log names the file it
@@ -59,7 +59,7 @@ Node app — there is nothing to run. Two options:
 - Commit the built output and declare it a [static site](../static/). This is
   usually the right answer, and it is cheaper to run.
 
-Launchpad never runs `npm run build` for a static app, so `dist/` has to be
+Toft never runs `npm run build` for a static app, so `dist/` has to be
 committed and out of your `.gitignore`.
 
 ## Version
@@ -77,5 +77,5 @@ Comparators only, never a patch version. See [Language versions](../versions/).
   developer is watching.
 - Writing into your own release directory expecting it to persist. A start
   replaces the tree.
-- Binding to a specific host of your choosing. Bind to the address Launchpad
+- Binding to a specific host of your choosing. Bind to the address Toft
   gives you.

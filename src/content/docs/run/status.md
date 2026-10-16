@@ -6,7 +6,7 @@ description: Running, sleeping, stopped and crashed — what each means and who 
 | Status | What it means |
 |---|---|
 | **Running** | The workload is up and serving. |
-| **Sleeping** | Nobody has used it for a while, so Launchpad stopped the process to free the machine. The next request wakes it. |
+| **Sleeping** | Nobody has used it for a while, so Toft stopped the process to free the machine. The next request wakes it. |
 | **Stopped** | Somebody stopped it on purpose. It stays stopped until somebody starts it. |
 | **Ready** | A [batch app](../../automation/jobs/#batch-apps) with a release: it serves nothing and runs jobs. |
 | **Crashed** | It started and then exited, repeatedly. |
@@ -90,9 +90,9 @@ can raise the ceiling for one app, but ask for it knowing what it is for.
 From the app page, or:
 
 ```bash
-lp stop
-lp start
-lp restart
+toft stop
+toft start
+toft restart
 ```
 
 A restart puts the **same release** back up. It is not a deploy, it does not

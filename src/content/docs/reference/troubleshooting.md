@@ -16,7 +16,7 @@ app page is only the summary.
 | Version not available | You pinned a version this install does not have. Refused, never approximated. |
 | A dependency finding | Your install's [policy](../../run/dependencies/) stopped it. Upgrade, or ask for a time-bounded waiver. |
 | Source not allowed | Your install restricts which repositories it will deploy from. |
-| Reserved slug | Names starting with `_` belong to Launchpad's own apps. |
+| Reserved slug | Names starting with `_` belong to Toft's own apps. |
 | Build timed out | Past the install's build ceiling. The serving release stayed up. |
 
 ## It deployed but the page is blank or unstyled
@@ -34,7 +34,7 @@ The short version:
 
 ## It crashes on start
 
-The Logs tab, and look at both voices — Launchpad's lines about your app are in
+The Logs tab, and look at both voices — Toft's lines about your app are in
 the same stream. Usually:
 
 - Not binding to `PORT`, or binding to a hard-coded port.
@@ -86,7 +86,7 @@ refusal has a way through it.
 
 ## A browser upload to storage fails silently
 
-Almost always missing CORS on the bucket. Launchpad never saw the request, so it
+Almost always missing CORS on the bucket. Toft never saw the request, so it
 cannot report it as a failed upload. Your administrator configures this.
 
 ## My scheduled task never fires
@@ -95,11 +95,11 @@ cannot report it as a failed upload. Your administrator configures this.
 - Is the path right? It is relative to your app.
 - Look at the run history — a skipped run is recorded, with the reason.
 
-## `lp` says exit 3
+## `toft` says exit 3
 
 Your credential was refused. That is different from exit 1, which means the
-platform did the thing and it failed. Re-run `lp login`, or check that
-`LAUNCHPAD_TOKEN` and `LAUNCHPAD_URL` name the same install.
+platform did the thing and it failed. Re-run `toft login`, or check that
+`TOFT_TOKEN` and `TOFT_URL` name the same install.
 
 ## Something is missing entirely — a tab, a button, a page
 

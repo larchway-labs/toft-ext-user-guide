@@ -48,7 +48,7 @@ that is an administrator's decision to make deliberately.
 
 ## What to do
 
-Reply to the administrator who locked it. Launchpad deliberately gives you no
+Reply to the administrator who locked it. Toft deliberately gives you no
 way around a lock — not a flag, not an API call, not a redeploy under a new name
 that inherits the old one's state.
 

@@ -1,20 +1,20 @@
 ---
-title: How Launchpad reads your repository
+title: How Toft reads your repository
 description: The one ordered decision that picks a framework, and what to do when it picks wrong.
 ---
 
-You do not declare a framework. Launchpad looks at the repository and decides.
+You do not declare a framework. Toft looks at the repository and decides.
 
 ## It is one ordered decision
 
 Detection runs once, in a fixed order, and stops at the first match. That order
 is why a repository can be "obviously Python" to you and something else to
-Launchpad — and why the fix is usually to remove an ambiguity rather than to
+Toft — and why the fix is usually to remove an ambiguity rather than to
 add a declaration.
 
 Roughly:
 
-1. **`[static]` in `launchpad.toml`.** Read first, and it overrides everything
+1. **`[static]` in `toft.toml`.** Read first, and it overrides everything
    below — including the rules that would otherwise disqualify the repository.
 2. **Documents.** One `.ipynb`, `.qmd` or `.Rmd` at the root.
 3. **R.** `app.R`, `ui.R`+`server.R`, `plumber.R`, or an `.R` file carrying

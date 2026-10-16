@@ -3,7 +3,7 @@ title: Quiet apps
 description: The fact your app page reports, and what it is not.
 ---
 
-Launchpad tracks how long it has been since anybody showed evidence of wanting
+Toft tracks how long it has been since anybody showed evidence of wanting
 your app. That fact appears on the app's own page.
 
 ## Quiet is measured from evidence, not from traffic alone

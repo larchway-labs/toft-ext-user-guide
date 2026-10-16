@@ -1,6 +1,6 @@
 ---
 title: Logs
-description: Two logs, two voices, and what Launchpad does and does not keep.
+description: Two logs, two voices, and what Toft does and does not keep.
 ---
 
 Anything your app writes to standard output or standard error is captured and
@@ -26,11 +26,11 @@ was refused, the moment it stopped retrying.
 The platform's lines are marked, and you can filter to one or the other:
 
 ```bash
-lp logs                      # both
-lp logs --source app         # only your app
-lp logs --source platform    # only Launchpad's account of it
-lp logs --follow             # live
-lp logs --deploy <id>        # a build log instead
+toft logs                      # both
+toft logs --source app         # only your app
+toft logs --source platform    # only Toft's account of it
+toft logs --follow             # live
+toft logs --deploy <id>        # a build log instead
 ```
 
 That second voice is why "my app printed nothing and it still will not start" is

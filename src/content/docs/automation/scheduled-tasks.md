@@ -1,6 +1,6 @@
 ---
 title: Scheduled tasks
-description: Having Launchpad call a path in your app on a schedule.
+description: Having Toft call a path in your app on a schedule.
 ---
 
 A scheduled task is **an HTTP request to a path your app publishes**, made on a
@@ -25,7 +25,7 @@ Your install caps how many schedules one app may have.
 A schedule runs in UTC unless it names a zone: fill in the **Time zone** field,
 or write `CRON_TZ=Europe/London 0 6 * * *` as the schedule. It fires once per
 wall-clock time across daylight saving, and lists show `expression · zone`.
-From the client, `lp task create nightly --path /internal/roll --schedule "0 6 * * *" --timezone Europe/London`.
+From the client, `toft task create nightly --path /internal/roll --schedule "0 6 * * *" --timezone Europe/London`.
 
 ## A task without a schedule is on demand
 
@@ -83,7 +83,7 @@ rather than the whole payload.
 ## A skipped run is recorded; a refused one is not
 
 If your app returns an error, that is a run that happened and failed, and you
-will see it. If Launchpad never made the request — the app was stopped, locked,
+will see it. If Toft never made the request — the app was stopped, locked,
 or the previous run was still going — that is recorded too, with the reason.
 
 What is not recorded is a request that was refused before it was a run at all.
@@ -91,7 +91,7 @@ What is not recorded is a request that was refused before it was a run at all.
 ## Running one now
 
 ```bash
-lp task run <name>
+toft task run <name>
 ```
 
 Waits by default, and the run's outcome is the exit code. **A skipped task is
@@ -105,10 +105,10 @@ The client also creates and changes them, so a task can live in the same place
 as the code that answers it:
 
 ```bash
-lp task create refresh --path /internal/refresh          # on demand
-lp task create nightly --path /internal/roll --schedule "0 2 * * *"
-lp task edit nightly --schedule ""                       # now on demand
-lp task delete nightly
+toft task create refresh --path /internal/refresh          # on demand
+toft task create nightly --path /internal/roll --schedule "0 2 * * *"
+toft task edit nightly --schedule ""                       # now on demand
+toft task delete nightly
 ```
 
 `--schedule` is the optional flag it looks like. `edit` sends only the flags you

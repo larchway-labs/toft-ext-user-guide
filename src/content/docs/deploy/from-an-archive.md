@@ -16,7 +16,7 @@ option is not on the New app page, that is why.
 - A one-off you are not going to keep in version control.
 - An air-gapped transfer.
 
-For anything you are iterating on, [`lp deploy`](../from-your-machine/) is
+For anything you are iterating on, [`toft deploy`](../from-your-machine/) is
 better: it sends the same bytes without you making an archive.
 
 ## What an upload loses, and what it says about it
@@ -39,8 +39,8 @@ expected is missing, that report is the first place to look.
 ## An upload is not a git app
 
 An app created from an archive has no repository, so it has no branch, no
-subdirectory and no auto-deploy. `lp redeploy` on it is refused by name and
-tells you to use `lp deploy`.
+subdirectory and no auto-deploy. `toft redeploy` on it is refused by name and
+tells you to use `toft deploy`.
 
 You can point it at a repository later from the **Settings** tab.
 

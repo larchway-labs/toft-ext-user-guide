@@ -11,7 +11,7 @@ Turn it on from the app's **Settings** tab.
 **A webhook**, when your git host is connected by an administrator and can reach
 this install. The push arrives, the build starts. This is the fast path.
 
-**Polling**, when a hook cannot reach in — a Launchpad that is not exposed to
+**Polling**, when a hook cannot reach in — a Toft that is not exposed to
 your git host, for instance. The install asks the branch for new commits on an
 interval your administrator sets. Slower, and otherwise identical.
 
@@ -36,7 +36,7 @@ one. Exactly what pressing **Deploy** would have done.
 
 ## When it is the wrong tool
 
-If a push should run tests before it becomes a deploy, put Launchpad at the end
-of your pipeline instead: let CI decide, then have it run `lp deploy` or
-`lp redeploy` with a [deploy key](../../cli/api-keys/). Auto-deploy has no
+If a push should run tests before it becomes a deploy, put Toft at the end
+of your pipeline instead: let CI decide, then have it run `toft deploy` or
+`toft redeploy` with a [deploy key](../../cli/api-keys/). Auto-deploy has no
 opinion about whether your branch is good.

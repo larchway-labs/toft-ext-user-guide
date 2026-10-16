@@ -17,7 +17,7 @@ Your app never holds a credential, and never speaks in the platform's voice — 
 message from your app is attributed to your app.
 
 ```python
-from launchpad import notify
+from toft import notify
 
 notify("slack", "Nightly load finished: 12,400 rows")
 ```
@@ -54,7 +54,7 @@ message does not quietly go somewhere else because a channel was archived.
 ## Sending a file
 
 ```python
-from launchpad import deliver
+from toft import deliver
 
 deliver("sharepoint", "august-summary.csv", data)
 ```
@@ -72,7 +72,7 @@ read your Slack, list a SharePoint folder, or fetch anything.
 
 **The far side's membership is the boundary.** What your app can reach is decided
 by the channel the connection was invited to and the folder it was given.
-Launchpad does not re-implement that — and Teams is a stated exception, which the
+Toft does not re-implement that — and Teams is a stated exception, which the
 refusal copy names.
 
 ## What is recorded

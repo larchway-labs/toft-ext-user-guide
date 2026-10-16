@@ -1,9 +1,9 @@
 ---
 title: From the gallery
-description: Deploying something Launchpad publishes, and what an installed app keeps.
+description: Deploying something Toft publishes, and what an installed app keeps.
 ---
 
-The **Gallery** is a catalog of apps the Launchpad team publishes: worked
+The **Gallery** is a catalog of apps the Toft team publishes: worked
 examples in every supported framework, and extensions that add a capability to
 your install.
 

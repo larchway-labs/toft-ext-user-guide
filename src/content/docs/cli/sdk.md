@@ -3,7 +3,7 @@ title: The app SDK
 description: The library your app calls back with, and where to get it.
 ---
 
-Your app can talk back to Launchpad — read who is calling, store its document,
+Your app can talk back to Toft — read who is calling, store its document,
 start a job, send a message, read its mounts. That is the **app SDK**, in
 Python, Node, Go and R.
 
@@ -12,17 +12,17 @@ The full reference is the **CLI and SDK guide**. This is the orientation.
 ## Get it from your own install
 
 ```bash
-lp sdk vendor python
+toft sdk vendor python
 ```
 
-Writes the SDK into `.launchpad/sdk-python/` in your project. Go also gets a
+Writes the SDK into `.toft/sdk-python/` in your project. Go also gets a
 `go.work` unless you already have one.
 
 The install serves the SDK it speaks, so vendoring gets you a version matched to
 the platform you are deploying to. A language your install does not carry is a
 stated refusal, not a broken download.
 
-**The SDK is identified by its bytes.** `lp sdk vendor` prints the build id of
+**The SDK is identified by its bytes.** `toft sdk vendor` prints the build id of
 the copy it just wrote, and the platform reports the same id for its own — so
 you can tell whether the copy in your tree is the copy your install would have
 given you. Both build logs print it too. That is a checksum rather than a
@@ -36,7 +36,7 @@ it names both, and it is your administrator's cue to rebuild the image.
 ## What is in it
 
 ```python
-from launchpad import (
+from toft import (
     app,        # who am I: id, slug, mode, base path, capabilities
     caller,     # what may this request's caller do
     viewer,     # who is looking, where that is switched on
@@ -69,7 +69,7 @@ an empty handle, so you do not have to read it back to find out what was saved.
 
 ## Errors are typed
 
-`LaunchpadError` with a code and a retryable flag, plus the specific ones worth
+`ToftError` with a code and a retryable flag, plus the specific ones worth
 catching by name — `VersionConflict` on an app-data precondition, `QueueFull`
 when your app is at its job concurrency cap.
 
@@ -86,5 +86,5 @@ comes up.
 
 ## In R
 
-`library(launchpad)` is installed before your own packages, so if you declare a
+`library(toft)` is installed before your own packages, so if you declare a
 version of it yourself, yours wins.

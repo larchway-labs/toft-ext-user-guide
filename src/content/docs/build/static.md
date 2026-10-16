@@ -5,7 +5,7 @@ description: Serving a folder of HTML, and using it to host a built front end.
 
 A repository that is HTML, CSS, images and JavaScript deploys with no
 configuration. Nothing is installed and nothing is compiled — the folder *is*
-the site, served by Launchpad itself.
+the site, served by Toft itself.
 
 ## Two ways to get one
 
@@ -17,7 +17,7 @@ as the tree has none of `package.json`, `requirements.txt`, `pyproject.toml`,
 that compiles to a folder. Commit the build output and declare where it is:
 
 ```toml
-# launchpad.toml
+# toft.toml
 [static]
 root = "dist"
 ```
@@ -28,7 +28,7 @@ without it, a Vite repository would deploy successfully and serve a blank page
 forever.
 
 :::caution
-**Launchpad does not run your build.** It never runs `npm install` or
+**Toft does not run your build.** It never runs `npm install` or
 `npm run build` for a static app. `dist/` has to be committed, and it has to not
 be in your `.gitignore`.
 :::
@@ -75,7 +75,7 @@ build log names the first few offenders it finds.
 At any depth, and not configurable:
 
 - Anything beginning with a dot.
-- `launchpad.toml` and `ecosystem.config.json`.
+- `toft.toml` and `ecosystem.config.json`.
 - Source files and lockfiles.
 
 They return **404**, not 403 — a 403 would confirm the file is there.
@@ -87,7 +87,7 @@ own path.
 
 - **No process.** Nothing is running between requests.
 - **No dependencies.** The tab says *no dependencies*, not "zero findings".
-- **No jobs.** A `launchpad.toml` declaring one on a static app fails the
+- **No jobs.** A `toft.toml` declaring one on a static app fails the
   deploy: there is no runtime for a command to mean anything in.
 - **No viewer identity.** There is nothing to hold a token.
 

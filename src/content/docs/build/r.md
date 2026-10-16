@@ -58,7 +58,7 @@ r = ">=4.4"
 
 ## A Posit Connect bundle
 
-If you have a `manifest.json` from Posit Connect, Launchpad translates it into
+If you have a `manifest.json` from Posit Connect, Toft translates it into
 an `renv.lock` rather than learning a second format. Everything downstream is
 the same.
 

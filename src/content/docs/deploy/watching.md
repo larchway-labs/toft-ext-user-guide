@@ -34,7 +34,7 @@ they explain everything odd you might see:
   build started, you get the lines from the moment you arrived and a note that
   earlier output is not in this pane. It is not lost — it is stored.
 - **The stored log is offered, never substituted.** When a build finishes, the
-  complete log is available to read. Launchpad will not quietly swap the stored
+  complete log is available to read. Toft will not quietly swap the stored
   copy in underneath a live pane and leave you unsure which you were reading.
 - **One stream per build, per page.** Opening the same build in two tabs does
   not double anything up.
@@ -61,7 +61,7 @@ terminal frame, not only somewhere in the log:
 | `source_blocked` | Your install's source policy refused it. Ask an administrator — editing code will not help. |
 | `dependency_blocked` | Named packages were refused. The [Dependencies tab](../../run/dependencies/) lists them with the versions that fix them. |
 | `unsupported_framework` | Nothing here knows how to serve this tree. |
-| `manifest_invalid` | `launchpad.toml` was refused. A one-file fix. |
+| `manifest_invalid` | `toft.toml` was refused. A one-file fix. |
 | `runtime_version` | A pinned language version this install does not have. |
 | `build_failed` | The ordinary red — your build or your dependency install. **The detail is in the build log.** |
 | `publish_failed` | The built release could not be stored. |
@@ -75,8 +75,8 @@ next thing to read is a different log.
 ## Rejoining from the terminal
 
 ```bash
-lp deploy --watch <deployID>
-lp logs --deploy <deployID>
+toft deploy --watch <deployID>
+toft logs --deploy <deployID>
 ```
 
 The first rejoins a build already running. The second prints a finished build's
@@ -88,7 +88,7 @@ has already finished and failed gets you the reason and the message, not just
 might be a few seconds behind.
 
 A deploy also reports **what it ignored** — a `[tasks]` table in
-`launchpad.toml`, say — as warnings, printed on the channel you are watching and
+`toft.toml`, say — as warnings, printed on the channel you are watching and
 carried in the `--json` result.
 
 ## What a deploy does not disturb

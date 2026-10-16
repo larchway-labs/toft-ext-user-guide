@@ -34,14 +34,14 @@ the flag yourself.
 ## Dependencies
 
 `requirements.txt`, installed with [uv](https://docs.astral.sh/uv/) into a
-virtual environment Launchpad manages.
+virtual environment Toft manages.
 
 Pin what matters. An unpinned `requirements.txt` resolves differently over time,
 and the first time you notice is a deploy that stops working with no change on
 your side.
 
 `pyproject.toml` and `Pipfile` are recognised as "this is a Python project" for
-detection purposes, but the dependency list Launchpad installs is
+detection purposes, but the dependency list Toft installs is
 `requirements.txt`.
 
 ## Version

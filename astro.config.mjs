@@ -3,16 +3,16 @@ import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
 /**
- * The Launchpad user guide.
+ * The Toft user guide.
  *
  * Built to a folder of HTML and committed as `dist/`, because that folder *is*
- * the deliverable: Launchpad never runs `npm install` or `astro build` for an
- * app, and `launchpad.toml`'s `[static] root = "dist"` is what tells the
+ * the deliverable: Toft never runs `npm install` or `astro build` for an
+ * app, and `toft.toml`'s `[static] root = "dist"` is what tells the
  * detector to serve this repo rather than refuse it for having a package.json.
  *
  * `base` is not optional. A static app is served under `/apps/{slug}/`, and a
  * root-absolute URL without that prefix asks the *platform* for the file and
- * gets a 404. The slug is reserved (`_` belongs to apps Launchpad installs
+ * gets a 404. The slug is reserved (`_` belongs to apps Toft installs
  * itself), so it cannot be taken by an ordinary app and this value cannot go
  * stale behind a rename.
  */
@@ -26,18 +26,18 @@ export default defineConfig({
   // So `/` *is* the first page. `index.mdx` is gone rather than hidden: a page
   // nothing links to is a page that rots.
   redirects: {
-    "/": "/apps/_user-guide/start/what-launchpad-is/",
+    "/": "/apps/_user-guide/start/what-toft-is/",
   },
   // No `site`: this repo is deployed to every customer's own hostname, so there
   // is no canonical origin to bake in. Anything needing one — a sitemap, an
   // absolute og:url — would be wrong on every install but ours.
   integrations: [
     starlight({
-      title: "Launchpad",
-      logo: { src: "./src/assets/logo.svg", alt: "Launchpad" },
+      title: "Toft",
+      logo: { src: "./src/assets/logo.svg", alt: "Toft" },
       tagline: "User guide",
       description:
-        "How to deploy, run and share an app on Launchpad.",
+        "How to deploy, run and share an app on Toft.",
       // Light only, like the platform. Starlight ships a theme toggle; the
       // override below is an empty component, which is the documented way to
       // remove one rather than hiding it with CSS a user can defeat.
@@ -48,20 +48,20 @@ export default defineConfig({
       customCss: [
         "@fontsource-variable/geist",
         "@fontsource-variable/geist-mono",
-        "./src/styles/launchpad.css",
+        "./src/styles/toft.css",
       ],
       pagination: true,
       lastUpdated: false,
       // Pagefind is Starlight's default and it is why this stack was chosen:
       // the index is built into `dist/` as static files, so search works on an
-      // install with no route off the network and behind Launchpad's own auth.
+      // install with no route off the network and behind Toft's own auth.
       // A hosted index (Algolia) would do neither.
       pagefind: true,
       sidebar: [
         {
           label: "Get started",
           items: [
-            { label: "What Launchpad is", slug: "start/what-launchpad-is" },
+            { label: "What Toft is", slug: "start/what-toft-is" },
             { label: "Signing in", slug: "start/signing-in" },
             { label: "Deploy your first app", slug: "start/first-app" },
             { label: "Finding your way around", slug: "start/finding-your-way" },
@@ -83,7 +83,7 @@ export default defineConfig({
         {
           label: "Building",
           items: [
-            { label: "How Launchpad reads your repository", slug: "build/how-detection-works" },
+            { label: "How Toft reads your repository", slug: "build/how-detection-works" },
             { label: "Node and Next.js", slug: "build/node" },
             { label: "Python", slug: "build/python" },
             { label: "Go", slug: "build/go" },
@@ -93,7 +93,7 @@ export default defineConfig({
             { label: "Scheduled re-renders", slug: "build/reports" },
             { label: "Language versions", slug: "build/versions" },
             { label: "Base paths", slug: "build/base-paths" },
-            { label: "launchpad.toml", slug: "build/launchpad-toml" },
+            { label: "toft.toml", slug: "build/toft-toml" },
           ],
         },
         {
@@ -142,8 +142,8 @@ export default defineConfig({
         {
           label: "The command line",
           items: [
-            { label: "Installing lp", slug: "cli/installing" },
-            { label: "Deploying with lp", slug: "cli/deploying" },
+            { label: "Installing toft", slug: "cli/installing" },
+            { label: "Deploying with toft", slug: "cli/deploying" },
             { label: "API keys", slug: "cli/api-keys" },
             { label: "The app SDK", slug: "cli/sdk" },
           ],

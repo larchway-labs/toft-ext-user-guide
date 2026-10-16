@@ -3,12 +3,12 @@ title: What your app learns about a viewer
 description: The role header, asking who someone is, and what your app must never assume.
 ---
 
-Every request Launchpad forwards to your app tells your app **what the caller
+Every request Toft forwards to your app tells your app **what the caller
 may do**. It does not, by default, tell your app **who they are**.
 
 ## The role
 
-Each forwarded request carries `X-Launchpad-Role`, one of exactly six words:
+Each forwarded request carries `X-Toft-Role`, one of exactly six words:
 
 ```
 unknown  anonymous  viewer  editor  owner  system  app
@@ -29,7 +29,7 @@ off by default: your app is always told what the caller may do.
 
 ## Asking who someone is
 
-Where an administrator has switched it on, per app, your app can ask Launchpad
+Where an administrator has switched it on, per app, your app can ask Toft
 who the current viewer is.
 
 - **It is off unless switched on.** Not being permitted and there being nobody
@@ -43,7 +43,7 @@ who the current viewer is.
   it is public for.
 
 ```python
-from launchpad import viewer, caller
+from toft import viewer, caller
 
 who = viewer()          # None if nobody, refused if not permitted
 role = caller()         # always available
@@ -59,7 +59,7 @@ app can send anything.
 **Never assume a viewer exists.** Scheduled tasks, health checks and probes reach
 your app with nobody behind them, and "nobody in particular" is a valid caller.
 
-**Never enforce Launchpad's rules for it.** The platform refuses first. Your app
+**Never enforce Toft's rules for it.** The platform refuses first. Your app
 enforces its own rules, on its own screens, and does not try to re-implement
 visibility or grants.
 
@@ -72,5 +72,5 @@ widen it. From inside your app it looks like any other role.
 ## Groups are not sent
 
 If your app needs to know which team somebody is on, it has to get that from
-somewhere else. Launchpad tells your app what a viewer may *do*, not which
+somewhere else. Toft tells your app what a viewer may *do*, not which
 groups they are in.

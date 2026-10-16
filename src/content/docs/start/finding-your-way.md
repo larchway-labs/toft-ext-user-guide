@@ -3,7 +3,7 @@ title: Finding your way around
 description: The pages you will actually use, and what each one answers.
 ---
 
-Launchpad has more screens than you need. These are the ones that matter to
+Toft has more screens than you need. These are the ones that matter to
 somebody deploying apps.
 
 ## The app list
@@ -69,4 +69,4 @@ guide, the CLI and SDK guide — and, if your administrator has picked one, your
 organization's own handbook.
 
 That handbook also appears as a link at the end of the header on every page. It
-is the only item in the navigation that leaves Launchpad.
+is the only item in the navigation that leaves Toft.

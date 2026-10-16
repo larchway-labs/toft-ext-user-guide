@@ -10,14 +10,14 @@ could not be made, a deploy refused by policy.
 Newest first, on the app's page and from the terminal:
 
 ```bash
-lp events
-lp events --since 24h --severity error
-lp events --kind deploy_failed --limit 50
+toft events
+toft events --since 24h --severity error
+toft events --kind deploy_failed --limit 50
 ```
 
 ## Why it is not just the log
 
-A log is what your process said. An event is what **Launchpad** noticed. They
+A log is what your process said. An event is what **Toft** noticed. They
 answer different questions, and a log is the wrong place to look for "why did
 nothing run last night" — because nothing ran, so nothing printed.
 

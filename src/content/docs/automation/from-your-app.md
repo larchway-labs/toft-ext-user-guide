@@ -7,7 +7,7 @@ Your app can start one of its own jobs — a request presses a button, the work
 happens in a container, the page comes back immediately.
 
 ```python
-from launchpad import jobs
+from toft import jobs
 
 run = jobs.start("nightly-report", params={"region": "emea"})
 ```
@@ -17,7 +17,7 @@ run = jobs.start("nightly-report", params={"region": "emea"})
 **An app starts a different entrypoint of *itself*, never another app.** There is
 no mechanism for one app to run work in another.
 
-**Your app never asserts who a viewer is.** It relays a token Launchpad already
+**Your app never asserts who a viewer is.** It relays a token Toft already
 signed. Your app cannot claim a run was started by somebody it was not — and
 "nobody in particular" is assertable, but only as a *narrowing*, and one resolver
 refuses it by name if you try to use it to widen anything.
@@ -36,7 +36,7 @@ A run has its own view of itself: its parameters, a progress it can report, an
 input, an output and a result.
 
 ```python
-from launchpad import run
+from toft import run
 
 region = run.params["region"]
 run.progress(0.5, "halfway")

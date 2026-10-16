@@ -1,6 +1,6 @@
 ---
 title: Signing in
-description: How you get an account on a Launchpad install, and what to do when you cannot.
+description: How you get an account on a Toft install, and what to do when you cannot.
 ---
 
 How you sign in is your administrator's decision, not a setting you control.
@@ -9,7 +9,7 @@ An install can offer any of these, and usually offers one:
 - **Your organization's single sign-on** (OIDC) — the button says whatever your
   administrator named it.
 - **GitHub.**
-- **A username and password** held by Launchpad itself. Usually only the
+- **A username and password** held by Toft itself. Usually only the
   built-in administrator account, kept for emergencies.
 
 If the sign-in page offers a button you do not recognize, that is the one your
@@ -59,8 +59,8 @@ raising with your administrator.
 
 ## When you cannot get in
 
-Launchpad has no "forgot password" email unless your administrator turned mail
-on *and* you sign in with a Launchpad password rather than SSO. Everything
+Toft has no "forgot password" email unless your administrator turned mail
+on *and* you sign in with a Toft password rather than SSO. Everything
 else — a disabled account, an expired directory account, a provider that was
 switched off, an account waiting for activation — is theirs to fix.
 

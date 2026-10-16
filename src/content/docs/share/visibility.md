@@ -31,7 +31,7 @@ There is no state in which your public app quietly goes dark.
 
 ## Reachability
 
-If your install is reachable from outside, Launchpad checks that a public app
+If your install is reachable from outside, Toft checks that a public app
 actually answers from out there before treating it as published.
 
 - A verdict opens the gate only on an explicit success. Silence is not a

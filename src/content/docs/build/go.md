@@ -10,7 +10,7 @@ runs.
 ## The contract
 
 - Serve HTTP on the port in **`PORT`**.
-- Bind to the address Launchpad gives you.
+- Bind to the address Toft gives you.
 - Honour **`BASE_PATH`** for absolute URLs you emit. See [Base
   paths](../base-paths/).
 
@@ -21,7 +21,7 @@ http.ListenAndServe(":"+port, mux)
 
 ## The version declaration is `go.mod`
 
-Go is the exception to `launchpad.toml`: its declaration is the `go` line in
+Go is the exception to `toft.toml`: its declaration is the `go` line in
 `go.mod`, because Go already has one and teaching a second would mean two places
 that can disagree.
 
